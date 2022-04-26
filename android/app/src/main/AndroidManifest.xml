@@ -26,7 +26,7 @@
 
 <!--        <uses-native-library></uses-native-library> &lt;!&ndash; SRA added &ndash;&gt;-->
 <!--        <uses-native-library android:name="/vendor/lib/libOpenCL.so" android:required="false" /> &lt;!&ndash; SRA added &ndash;&gt;-->
-<!--        <uses-library android:name="org.apache.http.legacy" android:required="false"/> &lt;!&ndash; SRA added &ndash;&gt;-->
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/> <!-- SRA added -->
 
         <activity
             android:name=".MainActivity"

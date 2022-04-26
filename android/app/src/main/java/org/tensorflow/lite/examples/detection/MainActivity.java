@@ -114,11 +114,11 @@ public class MainActivity extends AppCompatActivity {
 
     private static final Logger LOGGER = new Logger();
 
-    public static final int TF_OD_API_INPUT_SIZE = 640;
+    public static final int TF_OD_API_INPUT_SIZE = 320; // SRA changed to 320
 
-    private static final boolean TF_OD_API_IS_QUANTIZED = false;
+    private static final boolean TF_OD_API_IS_QUANTIZED = true; // SRA changed to true
 
-    private static final String TF_OD_API_MODEL_FILE = "yolov5s-fp16.tflite"; // SRA changed from "yolov5s.tflite";
+    private static final String TF_OD_API_MODEL_FILE = "yolov5s-320-int8.tflite"; // SRA changed from "yolov5s.tflite";
 
     private static final String TF_OD_API_LABELS_FILE = "file:///android_asset/coco.txt"; // coco.txt has only one cervix class
 
@@ -177,9 +177,9 @@ public class MainActivity extends AppCompatActivity {
                             TF_OD_API_IS_QUANTIZED,
                             TF_OD_API_INPUT_SIZE);
             Log.d("YoloV5Classifier",  "model loaded successfully: " + TF_OD_API_MODEL_FILE); // SRA added
-//            detector.useGpu(); // SRA added
-            detector.useNNAPI(); // SRA added
-//            detector.setNumThreads(8); // SRA added
+            detector.useGpu(); // SRA added
+//            detector.useNNAPI(); // SRA added
+//            detector.setNumThreads(4); // SRA added
         } catch (final IOException e) {
             e.printStackTrace();
             LOGGER.e(e, "Exception initializing classifier!");
